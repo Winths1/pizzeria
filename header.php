@@ -22,10 +22,10 @@
         </div>
         <ul class="nav-menu">
             <li class="nav-item">
-                <a href="http://localhost:1234/pizzeria/page.php" class="nav-link">Nos pizzas</a>
+                <a href="http://localhost/pizzeria/page.php" class="nav-link">Nos pizzas</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Nous trouver</a>
+                <a href="http://localhost/pizzeria/products.php" class="nav-link">Produits</a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link">Contact</a>

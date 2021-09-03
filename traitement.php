@@ -41,7 +41,7 @@
         } else {
             header("Location: page.php");
         }
-        
+
     } elseif ($action == 'delete'){
         try {
             $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
@@ -76,6 +76,7 @@
         }
 
     } elseif ($action == 'insert') {
+        if(isset($_POST['nom_add']))
         try {
             $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
 
@@ -83,16 +84,20 @@
 
             $sth = $dbco->prepare('
             INSERT INTO pizza (nom,prix_vente,note_consommateur) VALUES
-                (":name", :prix, :note)
+                (:name, :prix, :note)
             ');
 
-            $nom = $_POST['nom'];
-            $prix = $_POST['prix'];
-            $note = $_POST['note'];
+            $nom = $_POST['nom_add'];
+            $prix = $_POST['prix_add'];
+            $note = $_POST['note_add'];
 
             $sth->bindValue(':name',$nom,PDO::PARAM_STR_CHAR);
             $sth->bindValue(':prix',$prix,PDO::PARAM_STR);
-            $sth->bindValue(':note',$note,PDO::PARAM_STR);
+            if(empty($note)) {
+                $sth->bindValue(':note',NULL,PDO::PARAM_STR);
+            } else {
+                $sth->bindValue(':note',$note,PDO::PARAM_STR);
+            }
 
             $sth->execute();
 
