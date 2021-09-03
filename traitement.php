@@ -41,21 +41,30 @@
         } else {
             header("Location: page.php");
         }
+        
     } elseif ($action == 'delete'){
         try {
             $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
 
             $dbco->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
 
-            $sth = $dbco->prepare('
+            $sth1 = $dbco->prepare('
+                    DELETE FROM ingredient
+                    WHERE nom_pizza= :nom
+            ');
+
+            $sth2 = $dbco->prepare('
                     DELETE FROM pizza
                     WHERE nom= :nom
                 ');
+            
             $nom = $_GET['nom'];
 
-            $sth->bindValue(':nom',$nom, PDO::PARAM_STR_CHAR);
+            $sth1->bindValue(':nom',$nom, PDO::PARAM_STR_CHAR);
+            $sth2->bindValue(':nom',$nom, PDO::PARAM_STR_CHAR);
 
-            $sth->execute();
+            $sth1->execute();
+            $sth2->execute();
 
             $dbco = NULL;
 
@@ -65,7 +74,37 @@
             echo "Erreur : " . $e->getMessage();
             $dbco = NULL;
         }
-    }
+
+    } elseif ($action == 'insert') {
+        try {
+            $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $user, $pass);
+
+            $dbco->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+            $sth = $dbco->prepare('
+            INSERT INTO pizza (nom,prix_vente,note_consommateur) VALUES
+                (":name", :prix, :note)
+            ');
+
+            $nom = $_POST['nom'];
+            $prix = $_POST['prix'];
+            $note = $_POST['note'];
+
+            $sth->bindValue(':name',$nom,PDO::PARAM_STR_CHAR);
+            $sth->bindValue(':prix',$prix,PDO::PARAM_STR);
+            $sth->bindValue(':note',$note,PDO::PARAM_STR);
+
+            $sth->execute();
+
+            $dbco = NULL;
+
+            header('Location: page.php');
+        }
+        catch(PDOException $e){
+            echo "Erreur : " . $e->getMessage();
+            $dbco = NULL;
+        }
+    };
 
 
 ?>

@@ -41,6 +41,9 @@
                         <a id='update' href="update.php?nom=<?php echo $pizza['nom'] ?>&prix=<?php echo $pizza['prix_vente'] ?>&note=<?php echo $pizza['note_consommateur'] ?>">Up</a>
                         <span id='delete' class="del_but">Del</span>
                     </div>
+                    <div class="boutons2">
+                        <a href="show.php?nom=<?php echo $pizza['nom'] ?>" id="show">Show</a>
+                    </div>
 
                     <!-- The Modal -->
                     <div class="modal">
