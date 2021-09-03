@@ -48,7 +48,9 @@
                     <div class="modal-content">
                         <p>Êtes-vous sûr de vouloir supprimer cette pizza ?</p>
                             <div class="button_modal">
-                                <a id="yes" href="traitement.php?nom=<?php echo $pizza['nom'] ?>&action=delete">Oui</a>
+                                <a id="yes" href="traitement.php?action=delete&nom=<?php echo $pizza['nom'] ?>">
+                                    Oui
+                                </a>
                                 <span class="close">Non</span>
                             </div>
                         </div>
