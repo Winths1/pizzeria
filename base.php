@@ -1,10 +1,10 @@
 <section>
     <!-- Ajouter une pizza -->
     <div class="add_pizza">
-        <div id="show_add">
+        <div id="show_add_pi">
                 Ajouter une pizza
         </div>
-        <form id="form_insert" action="traitement.php?action=insert" method="POST">
+        <form id="form_insert_pi" action="traitement.php?action=insert" method="POST">
             <div class="inp_add">
                 <div>
                     <label for="nom_add">Nom de la pizza</label>
@@ -25,9 +25,36 @@
         </form>
 </section>
 
+<!-- Ajouter un produit -->
+<section>
+    <div class="add_product">
+        <div id="show_add_pro">
+                Ajouter un produit
+        </div>
+        <form id="form_insert_pro" action="traitement.php?action=insertp" method="POST">
+            <div class="inp_add">
+                <div>
+                    <label for="nomp_add">Nom du produit</label>
+                    <input type="text" name="nomp_add" id="name_add" required>
+                </div>
+                <div>
+                    <label for="prixp_kg">Prix du produit au kilo</label>
+                    <input type='number' name='prixp_kg' id='price_product' step='0.01' min='0' max='99'>
+                </div>
+                <div>
+                    <label for="allergene_p">Contient allergene</label>
+                    <input type="checkbox" name="allergene_p" id="allergeneP">
+                </div>
+            </div>
+            <div class="btn_insert">
+                <input class="submit_add" type="submit" value="Ajouter">
+            </div>
+        </form>
+</section>
+
 <section class="show">
     <div class="show_product">
-        <div id="pizShow">
+        <div id="pizShow" class="active">
             Afficher la liste des pizzas
         </div>
     </div>
@@ -132,17 +159,17 @@
                             ?>
                         </div>
                         <div class="boutons">
-                            <a id='update' href="update.php?nom=<?php echo $pizza['nom'] ?>&prix=<?php echo $pizza['prix_vente'] ?>&note=<?php echo $pizza['note_consommateur'] ?>">Up</a>
+                            <a id='update' href="updatep.php?nom=<?php echo $produit['nom'] ?>&prixkg=<?php echo $produit['prix_kg'] ?>&allergene=<?php echo $produit['allergene'] ?>">Up</a>
                             <span id='delete' class="del_but">Del</span>
                         </div>
 
                         <!-- The Modal -->
-                        <div class="modalp">
+                        <div class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
                             <p>Êtes-vous sûr de vouloir supprimer ce produit ?</p>
                                 <div class="button_modal">
-                                    <a id="yes" href="traitement.php?action=delete&nom=<?php echo $produit['nom'] ?>">
+                                    <a id="yes" href="traitement.php?action=deletep&nom=<?php echo $produit['nom'] ?>">
                                         Oui
                                     </a>
                                     <span class="close">Non</span>

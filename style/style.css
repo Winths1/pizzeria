@@ -201,12 +201,12 @@ html li a {
           transform: translateY(-13px) rotate(-45deg);
 }
 
-div.add_pizza {
+div.add_pizza, div.add_product {
   border: 2px solid black;
   background-color: #FBB713;
 }
 
-div.add_pizza div#show_add {
+div.add_pizza div#show_add_pi, div.add_pizza div#show_add_pro, div.add_product div#show_add_pi, div.add_product div#show_add_pro {
   cursor: pointer;
   background-color: #ffd188;
   margin: 25px auto;
@@ -220,7 +220,7 @@ div.add_pizza div#show_add {
   font-size: 3rem;
 }
 
-div.add_pizza form#form_insert {
+div.add_pizza form#form_insert_pi, div.add_pizza form#form_insert_pro, div.add_product form#form_insert_pi, div.add_product form#form_insert_pro {
   width: 80%;
   display: none;
   width: 60%;
@@ -238,7 +238,7 @@ div.add_pizza form#form_insert {
           align-items: center;
 }
 
-div.add_pizza form#form_insert div.inp_add {
+div.add_pizza form#form_insert_pi div.inp_add, div.add_pizza form#form_insert_pro div.inp_add, div.add_product form#form_insert_pi div.inp_add, div.add_product form#form_insert_pro div.inp_add {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -252,7 +252,7 @@ div.add_pizza form#form_insert div.inp_add {
           justify-content: center;
 }
 
-div.add_pizza form#form_insert div.inp_add div {
+div.add_pizza form#form_insert_pi div.inp_add div, div.add_pizza form#form_insert_pro div.inp_add div, div.add_product form#form_insert_pi div.inp_add div, div.add_product form#form_insert_pro div.inp_add div {
   width: 100%;
   margin: 2% auto;
   display: -webkit-box;
@@ -267,31 +267,40 @@ div.add_pizza form#form_insert div.inp_add div {
           justify-content: center;
 }
 
-div.add_pizza form#form_insert div.inp_add div label {
+div.add_pizza form#form_insert_pi div.inp_add div label, div.add_pizza form#form_insert_pro div.inp_add div label, div.add_product form#form_insert_pi div.inp_add div label, div.add_product form#form_insert_pro div.inp_add div label {
   width: 100%;
   text-align: center;
 }
 
-div.add_pizza form#form_insert div.inp_add div input {
+div.add_pizza form#form_insert_pi div.inp_add div input, div.add_pizza form#form_insert_pro div.inp_add div input, div.add_product form#form_insert_pi div.inp_add div input, div.add_product form#form_insert_pro div.inp_add div input {
   margin: 0 auto;
   text-align: center;
   width: 75%;
 }
 
-div.add_pizza form#form_insert .btn_insert {
+div.add_pizza form#form_insert_pi div.inp_add div input[type=checkbox], div.add_pizza form#form_insert_pro div.inp_add div input[type=checkbox], div.add_product form#form_insert_pi div.inp_add div input[type=checkbox], div.add_product form#form_insert_pro div.inp_add div input[type=checkbox] {
+  width: 25px;
+  height: 25px;
+}
+
+div.add_pizza form#form_insert_pi div.inp_add div input[type=checkbox]:checked, div.add_pizza form#form_insert_pro div.inp_add div input[type=checkbox]:checked, div.add_product form#form_insert_pi div.inp_add div input[type=checkbox]:checked, div.add_product form#form_insert_pro div.inp_add div input[type=checkbox]:checked {
+  background: black;
+}
+
+div.add_pizza form#form_insert_pi .btn_insert, div.add_pizza form#form_insert_pro .btn_insert, div.add_product form#form_insert_pi .btn_insert, div.add_product form#form_insert_pro .btn_insert {
   text-align: center;
   width: 60%;
   margin-bottom: 20px;
 }
 
-div.add_pizza form#form_insert .btn_insert input.submit_add {
+div.add_pizza form#form_insert_pi .btn_insert input.submit_add, div.add_pizza form#form_insert_pro .btn_insert input.submit_add, div.add_product form#form_insert_pi .btn_insert input.submit_add, div.add_product form#form_insert_pro .btn_insert input.submit_add {
   margin: 1%;
   width: 70%;
   background-color: #FF3A2F;
   border-radius: 15px;
 }
 
-div.add_pizza form#form_insert.active {
+div.add_pizza form#form_insert_pi.active, div.add_pizza form#form_insert_pro.active, div.add_product form#form_insert_pi.active, div.add_product form#form_insert_pro.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -582,6 +591,26 @@ section.products.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+div#proShow.active {
+  background-color: greenyellow;
+  -webkit-box-shadow: inset 2px 2px 2px 0 black;
+          box-shadow: inset 2px 2px 2px 0 black;
+}
+
+div#pizShow.active {
+  background-color: greenyellow;
+  -webkit-box-shadow: inset 2px 2px 2px 0 black;
+          box-shadow: inset 2px 2px 2px 0 black;
+}
+
+div#pizShow.active::after {
+  content: " (visible)";
+}
+
+div#proShow.active:after {
+  content: " (visible)";
 }
 
 /* The Modal (background) */

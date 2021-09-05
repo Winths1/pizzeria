@@ -169,11 +169,11 @@ html {
 }
 
 // section
-div.add_pizza {
+div.add_pizza, div.add_product {
     border: 2px solid black;
     background-color: #FBB713;
 
-    div#show_add {
+    div#show_add_pi , div#show_add_pro {
             cursor: pointer;
             background-color: rgb(255, 209, 136);
             margin:  25px auto;
@@ -186,7 +186,7 @@ div.add_pizza {
             font-size: 3rem;
     }
 
-    form#form_insert {
+    form#form_insert_pi, form#form_insert_pro {
         width: 80%;
         display: none;
         width: 60%;
@@ -219,7 +219,14 @@ div.add_pizza {
                     margin: 0 auto;
                     text-align: center;
                     width: 75%;
-                }  
+                } 
+                input[type=checkbox] {
+                    width: 25px;
+                    height: 25px;
+                }
+                input[type=checkbox]:checked {
+                    background: black;
+                }
                 
             }
 
@@ -240,7 +247,7 @@ div.add_pizza {
         }
 
     }
-    form#form_insert.active {
+    form#form_insert_pi.active, form#form_insert_pro.active {
         display: flex;
     }
 }
@@ -468,7 +475,21 @@ section.products {
 section.products.active {
     display: flex;
 }
+div#proShow.active {
+    background-color: greenyellow;
+    box-shadow: inset 2px 2px 2px 0 black;
+}
+div#pizShow.active {
+    background-color: greenyellow;
+    box-shadow: inset 2px 2px 2px 0 black;
+}
 
+div#pizShow.active::after {
+    content: " (visible)";
+}
+div#proShow.active:after {
+    content: " (visible)";
+}
 
 // modal
 /* The Modal (background) */

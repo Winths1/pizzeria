@@ -11,19 +11,30 @@ function mobileMenu() {
 // Sections d'affichages
 var main = document.getElementById('secpizz');
 var prod = document.getElementById('secprod');
-var formI = document.getElementById('form_insert');
+// Formulaire ajout pizza
+var formI = document.getElementById('form_insert_pi');
+// Formulaire ajout produit
+var formP = document.getElementById('form_insert_pro');
+
+var pizShow = document.getElementById('pizShow');
+var prodShow = document.getElementById('proShow');
 
 // Fonctions d'affichage
-let addPiz = document.getElementById('show_add').addEventListener('click', () => {
+let addPiz = document.getElementById('show_add_pi').addEventListener('click', () => {
     formI.classList.toggle('active');
 })
+let addPro = document.getElementById('show_add_pro').addEventListener('click', () => {
+    formP.classList.toggle('active');
+})
 
-let prodShow = document.getElementById('proShow').addEventListener('click', () => {
+prodShow.addEventListener('click', () => {
     prod.classList.toggle('active');
+    prodShow.classList.toggle('active');
 });
 
-let pizShow = document.getElementById('pizShow').addEventListener('click', () => {
+pizShow.addEventListener('click', () => {
     main.classList.toggle('active');
+    pizShow.classList.toggle('active');
 })
 
 
